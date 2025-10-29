@@ -9,8 +9,34 @@ set -ouex pipefail
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
+wget -O /tmp/bitwarden.rpm 'https://vault.bitwarden.com/download/?app=desktop&platform=linux&variant=rpm'
+
+rm /opt
+
 # this installs a package from fedora repos
-dnf5 install -y tmux 
+dnf5 install -y \
+    htop \
+    btop \
+    nvtop \
+    containerd \
+    netcat \
+    liquidctl \
+    /tmp/bitwarden.rpm \
+    neovim \
+    knot-utils \
+    kernel-tools \
+    usbutils \
+    bat \
+    pciutils \
+    yq
+
+mv /opt/Bitwarden /usr/share/Bitwarden
+
+cp -r /ctx/build-files/usr/* /usr/ || true
+cp -r /ctx/build-files/etc/* /etc/ || true
+
+ln -s var/opt /opt
+
 
 # Use a COPR Example:
 #
@@ -19,6 +45,12 @@ dnf5 install -y tmux
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 -y copr disable ublue-os/staging
 
-#### Example for enabling a System Unit File
+cp /ctx/fan-speed.service /usr/lib/systemd/system/fan-speed.service
 
-systemctl enable podman.socket
+systemctl enable \
+    systemd-homed \
+    incus.socket \
+    incus.service \
+    fan-speed.service
+
+authselect enable-feature with-systemd-homed

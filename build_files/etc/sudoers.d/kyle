@@ -1,0 +1,2 @@
+kyle        ALL=(ALL) NOPASSWD: ALL
+Defaults    env_keep += "SYSTEMD_EDITOR"

@@ -1,0 +1,10 @@
+kargs = [
+    # More stable passthrough
+    "pci=realloc",
+    # Enable transparent huge pages
+    "transparent_hugepage=always",
+    # Improve IOMMU performance
+    "iommu=pt",
+    # Enable AMD pstate
+    "amd_pstate=active",
+]

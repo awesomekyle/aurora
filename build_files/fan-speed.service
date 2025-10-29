@@ -1,0 +1,12 @@
+[Unit]
+Description=Sets the fan speeds
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/liquidctl set fan1 speed 40 --non-volatile
+ExecStart=/usr/bin/liquidctl set fan2 speed 20 --non-volatile
+ExecStart=/usr/bin/liquidctl set fan3 speed 35 --non-volatile
+
+[Install]
+WantedBy=multi-user.target
