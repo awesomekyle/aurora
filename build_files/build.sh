@@ -32,8 +32,8 @@ dnf5 install -y \
 
 mv /opt/Bitwarden /usr/share/Bitwarden
 
-cp -r /ctx/build-files/usr/* /usr/ || true
-cp -r /ctx/build-files/etc/* /etc/ || true
+cp -r /ctx/usr/* /usr/
+cp -r /ctx/etc/* /etc/
 
 ln -s var/opt /opt
 
