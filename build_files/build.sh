@@ -50,7 +50,8 @@ systemctl enable \
     incus.socket \
     incus.service \
     fan-speed.service \
-    install-incus-agent.service
+    install-incus-agent.service \
+    sshd.service
 
 systemctl disable \
     NetworkManager-wait-online.service
