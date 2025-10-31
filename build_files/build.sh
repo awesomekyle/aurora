@@ -45,12 +45,14 @@ ln -s var/opt /opt
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 -y copr disable ublue-os/staging
 
-cp /ctx/fan-speed.service /usr/lib/systemd/system/fan-speed.service
-
 systemctl enable \
     systemd-homed \
     incus.socket \
     incus.service \
-    fan-speed.service
+    fan-speed.service \
+    install-incus-agent.service
+
+systemctl disable \
+    NetworkManager-wait-online.service
 
 authselect enable-feature with-systemd-homed

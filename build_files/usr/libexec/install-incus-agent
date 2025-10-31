@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+if [[ "$EUID" -ne 0 ]]; then
+    echo "This script must be run as root!"
+    exit 1
+fi
+
+set -ex
+
+mkdir -p /run/incus_agent
+mount -t 9p config /run/incus_agent/
+cd /run/incus_agent/
+semanage fcontext -a -t bin_t /run/incus_agent/incus-agent || true
+./install.sh
+
+cd /run
+umount /run/incus_agent
+systemctl start incus-agent

@@ -1,0 +1,12 @@
+[Unit]
+Description=Set up Incus agent
+After=network-online.target
+ConditionVirtualization=yes
+ConditionFileNotEmpty=!/etc/systemd/system/incus-agent.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/install-incus-agent
+
+[Install]
+WantedBy=multi-user.target
