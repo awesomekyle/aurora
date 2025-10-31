@@ -1,0 +1,15 @@
+# Rename NICs
+SUBSYSTEM=="net",ACTION=="add",ATTR{address}=="7c:c2:55:e9:0f:e2",ATTR{type}=="1",NAME="eno1"
+SUBSYSTEM=="net",ACTION=="add",ATTR{address}=="7c:c2:55:e9:0f:e3",ATTR{type}=="1",NAME="eno2"
+SUBSYSTEM=="net",ACTION=="add",ATTR{address}=="10:ff:e0:39:f9:b6",ATTR{type}=="1",NAME="eno1"
+SUBSYSTEM=="net",ACTION=="add",ATTR{address}=="10:ff:e0:39:f9:b7",ATTR{type}=="1",NAME="eno2"
+# NOTE: the names are duplicated below
+SUBSYSTEM=="net",ACTION=="add",ATTR{address}=="08:c0:eb:8b:f9:78",ATTR{type}=="1",NAME="cx6dx25n1"
+SUBSYSTEM=="net",ACTION=="add",ATTR{address}=="08:c0:eb:8b:f9:79",ATTR{type}=="1",NAME="cx6dx25n2"
+SUBSYSTEM=="net",ACTION=="add",ATTR{address}=="10:70:fd:38:ae:46",ATTR{type}=="1",NAME="cx6dx25n1"
+SUBSYSTEM=="net",ACTION=="add",ATTR{address}=="10:70:fd:38:ae:47",ATTR{type}=="1",NAME="cx6dx25n2"
+SUBSYSTEM=="net",ACTION=="add",ATTR{address}=="a0:36:9f:ba:38:cc",ATTR{type}=="1",NAME="x550s0n1"
+SUBSYSTEM=="net",ACTION=="add",ATTR{address}=="a0:36:9f:ba:38:cd",ATTR{type}=="1",NAME="x550s0n2"
+SUBSYSTEM=="net",ACTION=="add",ATTR{address}=="a0:36:9f:b9:db:9c",ATTR{type}=="1",NAME="x550s1n1"
+SUBSYSTEM=="net",ACTION=="add",ATTR{address}=="a0:36:9f:b9:db:9d",ATTR{type}=="1",NAME="x550s1n2"
+SUBSYSTEM=="net",ACTION=="add",ATTR{address}=="00:16:3e:0a:51:9a",ATTR{type}=="1",NAME="eth0"

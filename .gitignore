@@ -2,3 +2,6 @@ cosign.key
 _build_*
 output
 _build-*/**
+.vscode/**/*
+!.vscode/launch.json
+!.vscode/tasks.json
