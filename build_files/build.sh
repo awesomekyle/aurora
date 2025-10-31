@@ -8,10 +8,7 @@ set -ouex pipefail
 # RPMfusion repos are available by default in ublue main images
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
-
-wget -O /tmp/bitwarden.rpm 'https://vault.bitwarden.com/download/?app=desktop&platform=linux&variant=rpm'
-
-rm /opt
+sudo dnf5 copr enable wezfurlong/wezterm-nightly -y
 
 # this installs a package from fedora repos
 dnf5 install -y \
@@ -21,21 +18,18 @@ dnf5 install -y \
     containerd \
     netcat \
     liquidctl \
-    /tmp/bitwarden.rpm \
     neovim \
     knot-utils \
     kernel-tools \
     usbutils \
     bat \
     pciutils \
-    yq
-
-mv /opt/Bitwarden /usr/share/Bitwarden
-
+    yq \
+    terminator \
+    wezterm
+    
 cp -r /ctx/usr/* /usr/
 cp -r /ctx/etc/* /etc/
-
-ln -s var/opt /opt
 
 
 # Use a COPR Example:
