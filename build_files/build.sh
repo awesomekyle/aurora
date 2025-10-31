@@ -31,7 +31,9 @@ dnf5 install -y \
 cp -r /ctx/usr/* /usr/
 cp -r /ctx/etc/* /etc/
 
-
+chmod -R 0600 /etc/NetworkManager/system-connections/
+chmod -R 0600 /usr/lib/NetworkManager/system-connections/
+  
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
