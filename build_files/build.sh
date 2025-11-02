@@ -26,7 +26,12 @@ dnf5 install -y \
     pciutils \
     yq \
     terminator \
-    wezterm
+    wezterm \
+    clang \
+    gcc \
+    gcc-c++ \
+    gdb \
+    lldb
     
 cp -r /ctx/usr/* /usr/
 cp -r /ctx/etc/* /etc/
