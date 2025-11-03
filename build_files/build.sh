@@ -32,19 +32,12 @@ dnf5 install -y \
     gcc-c++ \
     gdb \
     lldb
-    
+
 cp -r /ctx/usr/* /usr/
 cp -r /ctx/etc/* /etc/
 
 chmod -R 0600 /etc/NetworkManager/system-connections/
 chmod -R 0600 /usr/lib/NetworkManager/system-connections/
-  
-# Use a COPR Example:
-#
-# dnf5 -y copr enable ublue-os/staging
-# dnf5 -y install package
-# Disable COPRs so they don't end up enabled on the final image:
-# dnf5 -y copr disable ublue-os/staging
 
 systemctl enable \
     systemd-homed \
@@ -52,7 +45,8 @@ systemctl enable \
     incus.service \
     fan-speed.service \
     install-incus-agent.service \
-    sshd.service
+    sshd.service \
+    set-cpu-min-speed.timer
 
 systemctl disable \
     NetworkManager-wait-online.service

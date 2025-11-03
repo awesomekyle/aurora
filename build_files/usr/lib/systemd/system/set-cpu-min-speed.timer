@@ -1,0 +1,9 @@
+[Unit]
+Description=Set min CPU speed. TODO: figure out how to avoid this
+
+[Timer]
+Persistent=yes
+OnCalendar=hourly
+
+[Install]
+WantedBy=timers.target

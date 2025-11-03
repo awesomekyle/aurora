@@ -1,0 +1,12 @@
+[Unit]
+Description=Set the min CPU speed
+After=display-manager.service
+Requires=display-manager.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/bash -c "cpupower frequency-set -d $(cpupower frequency-info -l | sed -n 2p | awk '{print $1/1000;}')"
+
+[Install]
+WantedBy=multi-user.target
